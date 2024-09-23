@@ -17,13 +17,13 @@ int main()  // Main function, starting point of the program execution.
 {
     int iMenuChoice;    // Declare the variable for the menu choice.
     double fArea, fRadius, fLength, fWidth, fBase, fHeight; // Declare the variables for the measurements of the shapes.
-    const double PI = 3.14159;  // Initialize the value for Pi.
 
     // Display the menu.
-    cout << "Geometry Calculator\n" << endl << "1. Calculate the Area of a Circle\n";
+    cout << "Geometry Calculator\n" << endl;
+    cout << "1. Calculate the Area of a Circle\n";
     cout << "2. Calculate the Area of a Rectangle\n";
-    cout << "3. Calculate the Area of a Triangle\n" << "4. Quit\n";
-    cout << endl;
+    cout << "3. Calculate the Area of a Triangle\n";
+    cout << "4. Quit\n" << endl;
 
     // Request the user to choose an option from the menu and store it in the menu choice variable.
     cout << "Enter your choice (1-4): " << endl;
@@ -35,17 +35,16 @@ int main()  // Main function, starting point of the program execution.
         cout << "Enter the radius of the circle: " << endl; // Request the radius of the circle.
         cin >> fRadius; // Store the radius of the circle in fRadius.
 
-        if (fRadius < 0)  // Check if the user's input was negative.
+        if (fRadius < 0.0)  // Check if the user's input was negative.
         {
             cout << "Invalid input" << endl;    // Display the error message.
-            return 1;   // Return 1 for invalid input error and terminate the program.
+            return 1;   // Return 1 for the invalid input of the measurements of the circle error and terminate the program.
         }
         else    // If the input is valid, calculate the area.
         {
-            fArea = PI * pow(fRadius, 2);   // Calculate the area of the circle.
+            fArea = M_PI * pow(fRadius, 2.0);   // Calculate the area of the circle, using the M_PI constant from cmath file.
 
-            cout << fixed << setprecision(2);   // // Display the area value to 2 decimal places.
-            cout << "The area of the circle is: " << fArea << endl;
+            cout << "The area of the circle is: " << fArea << endl; // Display the area value.
         }
     }
 
@@ -54,17 +53,16 @@ int main()  // Main function, starting point of the program execution.
         cout << "Enter the length and width of the rectangle: " << endl;    // Request the values for length and width from the user.
         cin >> fLength >> fWidth;   // Store the input in fLength and fWidth variables.
 
-        if (fLength < 0 || fWidth < 0)  // Check if the user's input was negative.
+        if (fLength < 0.0 || fWidth < 0.0)  // Check if the user's input was negative.
         {
             cout << "Invalid input" << endl;    // Display the error message.
-            return 1;   // Return 1 for invalid input error and terminate the program.
+            return 2;   // Return 2 for the invalid input of the measurements of the rectangle error and terminate the program.
         }
         else    // If the input is valid, calculate the area.
         {
             fArea = fLength * fWidth;   // Calculate the area of the rectangle.
 
-            cout << fixed << setprecision(2);   // Display the area value to 2 decimal places.
-            cout << "The area of the rectangle is: " << fArea << endl;
+            cout << "The area of the rectangle is: " << fArea << endl;  // Display the area value.
         }
     }
 
@@ -73,26 +71,25 @@ int main()  // Main function, starting point of the program execution.
         cout << "Enter the base and height of the triangle: " << endl; // Request the values for base and height from the user.
         cin >> fBase >> fHeight;
 
-        if (fBase < 0 || fHeight < 0)  // Check if the user's input was negative.
+        if (fBase < 0.0 || fHeight < 0.0)  // Check if the user's input was negative.
         {
             cout << "Invalid input" << endl;    // Display the error message.
-            return 1;   // Return 1 for invalid input error and terminate the program.
+            return 3;   // Return 3 for the invalid input of the measurements of the triangle error and terminate the program.
         }
         else    // If the input is valid, calculate the area.
         {
             fArea = fBase * fHeight * 0.5;  // Calculate the area of the triangle.
 
-            cout << fixed << setprecision(2);   // // Display the area value to 2 decimal places.
-            cout << "The area of the triangle is: " << fArea << endl;
+            cout << "The area of the triangle is: " << fArea << endl;   // Display the area value.
         }
     }
 
     else if (iMenuChoice == 4)  // Check if the user picked the fourth option.
-        return 2;   // Return 2 and terminate the program if the user chose to quit.
+        return 4;   // Return 4 and terminate the program if the user chose to quit.
     else    // The input didn't match any of the menu choices.
     {
         cout << "Invalid menu choice. Enter a number 1-4." << endl; // Display the error message.
-        return 3;   // Return 3 for invalid menu choice and terminate the program.
+        return 5;   // Return 5 for the invalid input of the menu choice and terminate the program.
     }
     return 0;   // Return 0 to indicate successful completion of the program.
 }
